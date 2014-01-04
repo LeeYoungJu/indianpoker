@@ -138,7 +138,11 @@ var mysqlUtil = module.exports = {
 	}
 	
 	, check: function(type, value, callback) {
-		console.log(type + ' : ' + value);
+		if(conn.query) {
+			console.log('success');
+		} else {
+			console.log('fail');
+		}
 		conn.query(
 			'select count(*) as num from user_info where ' + type + ' = ?'
 			, [value]
