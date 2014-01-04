@@ -6,6 +6,11 @@ var conn = mysql.createConnection({
 	, password: 'mtsm27521928'
 	, database: DATABASE
 });
+if(conn) {
+	console.log('connect mysql success');
+} else {
+	console.log('fail to connect db');
+}
 
 var mysqlUtil = module.exports = {
 	insertRoom: function(title, card, callback) {
