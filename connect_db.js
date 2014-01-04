@@ -1,7 +1,8 @@
 var mysql = require('mysql');
 var DATABASE = 'dmlqhwmddml';
 var conn = mysql.createConnection({
-	host: 'localhost'		
+	host: '10.0.0.1'
+	, port: '3306'		
 	, user: 'dmlqhwmddml'
 	, password: 'mtsm27521928'
 	, database: DATABASE
