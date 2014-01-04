@@ -1,9 +1,9 @@
 var mysql = require('mysql');
-var DATABASE = 'indian_poker';
+var DATABASE = 'dmlqhwmddml';
 var conn = mysql.createConnection({
 	host: 'localhost'		
-	, user: 'root'
-	, password: 'mtsm2752!@#'
+	, user: 'dmlqhwmddml'
+	, password: 'mtsm27521928'
 	, database: DATABASE
 });
 
