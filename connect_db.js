@@ -6,11 +6,6 @@ var conn = mysql.createConnection({
 	, password: 'mtsm27521928'
 	, database: DATABASE
 });
-if(conn) {
-	console.log('connect mysql success');
-} else {
-	console.log('fail to connect db');
-}
 
 var mysqlUtil = module.exports = {
 	insertRoom: function(title, card, callback) {
@@ -143,6 +138,7 @@ var mysqlUtil = module.exports = {
 	}
 	
 	, check: function(type, value, callback) {
+		console.log(type + ' : ' + value);
 		conn.query(
 			'select count(*) as num from user_info where ' + type + ' = ?'
 			, [value]
