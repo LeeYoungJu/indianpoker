@@ -1,0 +1,34 @@
+extends layout
+
+block content  
+  script(src='/javascripts/wait_room.js')
+  - if(isSuccess)
+    #logout_button.right logout     
+    .clear      
+    .reload_button 새로고침(방 리스트 새로 갱신)
+    #room_list_box_wrapper.left  
+      #welcome_box
+        span.user_nick #{nickname}
+        님 환영합니다.
+      #make_room_box      
+        form(action='/makeRoom', method='POST')        
+          input(type='text', id='roomname', name='roomname')
+          input.make_room_button(type='submit', value='방 만들기')
+      .left_right_box
+        #left_button.left_right_button.left <
+        #right_button.left_right_button.left >
+      .page_indicator_box     
+      #room_list_box
+        each room in roomList
+          .room_list
+            .room_title.left= room.room_title
+            .enter_button.left(onclick='location.href=\'/join/' + room.room_title + '/' + room.room_id + '/guest\'') 입장
+    #desc_rule_box.left
+      img(src='images/game_rule_board.png')
+      #rule_video_button 동영상으로 규칙보기      
+    
+  - else    
+    script(type='text/javascript').        
+      alert('아이디 혹은 비밀번호가 잘못되었습니다.');
+      window.location.href = '/';        
+         

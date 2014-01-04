@@ -1,0 +1,42 @@
+extends layout
+
+block content    
+  script(src='/javascripts/common_function.js')
+  script(src='/javascripts/card.js')
+  script(src='/javascripts/chip.js')
+  script(src='/javascripts/chat.js')
+  script(src='/javascripts/poker.js')
+    
+  - if(!isSuccess)
+    script.
+      alert('방에 입장할 수 없습니다.');
+      location.href = '/enter';
+  - else
+    input#nick(type='hidden', value='#{nickName}')
+    input#room_id(type='hidden', value='#{roomid}')
+    input#isMaster(type='hidden', value='#{isMaster}')
+    #title_and_leave_button    
+      #roomName.room_title_in_room= roomName    
+      #leave.leave_button 나가기
+    .clear
+    #user_nick_box
+      span.left.nick_box#my_nick    
+      span.right.nick_box#your_nick
+    .clear
+    #game_wrapper
+      #my_state.state.left(isready='no') ready
+      .emptybox.left
+      #your_state.state.left . . .
+      .clear    
+      #my_card_box.left.card_box
+      #betting_box.left.betting_box
+      #your_card_box.left.card_box
+      .clear  
+      #my_chip_box.chip_box.left
+      #chat_box.chat_box.left        
+      #your_chip_box.chip_box.left
+      .clear      
+      form#chat_form          
+        input(type='text')#message
+        input(type='submit', value='enter')
+      

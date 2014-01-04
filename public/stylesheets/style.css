@@ -1,0 +1,492 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.desc_img {
+	width: 910px;
+	height: 700px;
+	margin: 20px 0;
+	border:2px solid #A6A6A6;
+	box-shadow: 0 0 10px gray;
+}
+
+.line {
+	height: 40px;
+	border-bottom: 3px dashed pink;
+	margin: 0 0 20px 0;
+}
+
+#room_list_box_wrapper {
+	
+}
+
+#desc_rule_box {
+	position:relative;
+	box-shadow: 0 0 35px black;	
+	margin: 55px 0 0 70px;
+}
+
+#rule_video_button {
+	position:absolute;
+	top:0;
+	right: 0;
+	font-weight:bold;
+	padding: 10px;
+	border-radius:5px;
+	border: 2px solid #8C8C8C;
+	background:#8C8C8C;
+	color:white;
+	float:right;
+	margin: 20px;
+	cursor:pointer;	 
+}
+#rule_video_button:hover {
+	background:white;
+	color:#8C8C8C;
+}
+                       
+            .left {
+		    	float:left;
+		    }
+		    .right {
+		    	float:right;
+		    }
+		    
+		    .clear {
+		    	clear:both;
+		    }
+		    
+		    #game_wrapper {
+		    	width: 1120px;
+		    	margin: 0 auto;
+		    }
+		    
+		    #user_nick_box {
+		    	width:1050px;		    			    	
+		    	height: 50px;
+		    	margin: 0 auto;		    	
+		    	padding: 20px;
+		    }
+		    
+		    #versus_in_nick_box {
+		    	width: 20px;
+		    	margin:0 auto;
+		    }
+		    
+		    .nick_box {
+		    	display:none;
+		    	padding: 10px;
+		    	font-size: 25px;
+		    	font-weight:bold;
+		    	color : #8C8C8C;
+		    	padding: 10px;
+		    	border: 2px solid #8C8C8C;
+		    	box-shadow: 0 0 8px black;
+		    	border-radius: 4px; 
+		    }
+		    
+			.card_box {
+				display:none;
+				width: 300px;
+				height: 400px;
+				
+			}
+			
+			.betting_box {
+				border:1px solid black;
+				width: 500px;
+				height: 398px;
+				position:relative;	
+				margin: 0 0 0 300px;			
+			}
+			
+			.betting_state_box {
+				position:absolute;
+				top: 135px;
+				left: 90px;
+				font-size: 20px;
+				
+			}
+			
+			.explain_result {
+				position:absolute;
+				top: 175px;
+				left: 75px;
+				font-size: 20px;
+			}
+			
+			.betting_chip_state {
+				padding: 10px;
+			}
+						
+			.versus {
+				margin: 0 10px;
+				font-size:15px;
+				font-weight:bold;
+			}
+						
+			.chip_state {
+				vertical-align: middle;
+			}
+			
+			
+			.chip_state_img {
+				vertical-align: middle;
+			}
+			
+			.small_betting_box {
+				padding: 10px;
+				position:absolute;
+				bottom:0;
+			}			
+			
+			#betting_form {
+				width: 50px;
+			}
+			
+			.chip_box {
+				display:none;
+				width:300px;
+				height: 280px;				
+				position:relative;
+				background: rgb(169,3,41); /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover,  rgba(169,3,41,1) 0%, rgba(143,2,34,1) 100%, rgba(109,0,25,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(169,3,41,1)), color-stop(100%,rgba(143,2,34,1)), color-stop(100%,rgba(109,0,25,1))); /* Chrome,Safari4+ */
+background: -webkit-radial-gradient(center, ellipse cover,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 100%,rgba(109,0,25,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-radial-gradient(center, ellipse cover,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 100%,rgba(109,0,25,1) 100%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 100%,rgba(109,0,25,1) 100%); /* IE10+ */
+background: radial-gradient(ellipse at center,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 100%,rgba(109,0,25,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+			}
+			
+			.remained_chip_box {
+				position:absolute;
+				bottom:0;
+				right:0;
+				padding: 0 5px 10px 0;
+				color:white;
+				font-size: 17px;
+				font-weight:bold;
+			}
+			
+			.chip_img {
+				position: absolute;
+				width: 60px;
+				height: 75px;							
+			}
+			
+			.chat_box {
+				width:500px;
+				height: 278px;
+				border:1px solid black;				
+				font-size: 13px;
+				color:gray;
+				overflow:auto;
+				margin: 0 0 0 300px;
+				position:relative;
+			}
+			
+			#chat_form {				
+				left:0px;
+				bottom: 0;
+				padding: 10px;
+				border:2px solid gray;
+				width: 478px; 
+				margin: 0 0 0 300px;
+				background:#D5D5D5;
+			}
+			#message {
+				width: 400px;
+			}
+			
+			.chat_message {
+				border-bottom: 2px dashed pink;
+				padding: 0 0 5px 5px;
+			}
+			
+			.state {
+				text-align:center;
+				display:table-cell;
+				padding: 20px 0 0 0;
+			    width:300px;
+			    height: 100px;
+			    font-weight:bold;
+			    font-size: 60px;
+			    border-radius:10px;
+			    color:white;
+			    background: rgb(169,3,41); /* Old browsers */
+background: -moz-linear-gradient(-45deg,  rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(169,3,41,1)), color-stop(44%,rgba(143,2,34,1)), color-stop(100%,rgba(109,0,25,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(-45deg,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(-45deg,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(-45deg,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* IE10+ */
+background: linear-gradient(135deg,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+			    			    
+			}
+			
+			#my_state {
+			    cursor:pointer;
+			}
+			#my_state:hover {
+				border: 5px solid #FF0000;
+				width: 290px;
+				height: 90px;
+			}
+			 
+            .emptybox {
+                width: 500px;
+                height: 120px;
+                
+            }
+           
+           
+
+
+
+            .login_input {
+		    	width: 200px;
+		    	height: 25px;
+		    	color:gray;
+		    }
+		    
+		    #login_table {
+		    	padding: 50px 70px;
+		    	border: 5px solid #6CC0FF;
+		    	
+		    }
+		    
+		    
+		    #submit_button {
+		    	border-radius:5px;
+		    	color:white;
+		    	font-size:12px;
+		    	padding: 8px 10px;
+		    	font-weight:bold;
+		    	display:inline;
+		    	cursor:pointer;
+		    	
+		    	background: rgb(169,3,41); /* Old browsers */
+background: -moz-linear-gradient(-45deg,  rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(169,3,41,1)), color-stop(44%,rgba(143,2,34,1)), color-stop(100%,rgba(109,0,25,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(-45deg,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(-45deg,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(-45deg,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* IE10+ */
+background: linear-gradient(135deg,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+		    }
+		    
+		    #menu_box {
+		    	height: 80px;
+		    }
+		    
+		    #register_button {
+		    	display:inline;
+		    	padding: 5px;
+		    	border: 3px solid #A50000;
+		    	color:#A50000;
+		    	cursor:pointer;
+		    	font-size: 13px;
+		    }		    
+		    
+		    #register_button:hover {
+		    	border: 3px solid red;
+		    }
+
+
+
+
+            #welcome_box {
+            	padding: 20px;
+            	font-size: 12px;
+            }
+            
+            .user_nick {
+            	font-size: 15px;
+            }
+            
+            .reload_button {
+            	height: 45px;
+            	text-align:center;
+            	font-size: 30px;
+            	color:gray;
+            	padding: 10px 0 0 0;
+            	border: 3px solid gray;
+            	border-radius: 10px;
+            	margin: 10px 0;
+            	cursor:pointer;
+            }
+            .reload_button:hover {
+            	border: 3px solid black;
+            	color:black;
+            }
+            
+            #logout_button {
+            	padding: 3px 5px;
+            	border: 2px solid #B70000;
+            	color:#B70000;
+            	cursor:pointer;
+            }
+            #logout_button:hover {
+            	border: 2px solid red;
+            }
+            
+            #roomname {
+		    	width: 350px;
+		    	height: 22px;
+		    }
+            
+            .make_room_button {
+            	height: 28px;
+            }
+
+            #make_room_box {
+            	padding: 20px;
+            	width: 436px;
+            	border: 2px solid #8C8C8C;
+            	background: rgb(226,226,226); /* Old browsers */
+background: -moz-linear-gradient(-45deg,  rgba(226,226,226,1) 0%, rgba(219,219,219,1) 50%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(226,226,226,1)), color-stop(50%,rgba(219,219,219,1)), color-stop(51%,rgba(209,209,209,1)), color-stop(100%,rgba(254,254,254,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(-45deg,  rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(209,209,209,1) 51%,rgba(254,254,254,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(-45deg,  rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(209,209,209,1) 51%,rgba(254,254,254,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(-45deg,  rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(209,209,209,1) 51%,rgba(254,254,254,1) 100%); /* IE10+ */
+background: linear-gradient(135deg,  rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(209,209,209,1) 51%,rgba(254,254,254,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+            }
+           #room_list_box {
+           	  margin: 10px 0;           	  
+           	             	  
+           }  
+           
+           .room_list {
+           	box-shadow: 0 0 10px black;
+           	width: 450px;
+           	height: 40px;
+           	 padding: 15px;
+           	 border-bottom: 3px solid #747474;
+           	
+             background: rgb(238,238,238); /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover,  rgba(238,238,238,1) 0%, rgba(204,204,204,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(204,204,204,1))); /* Chrome,Safari4+ */
+background: -webkit-radial-gradient(center, ellipse cover,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-radial-gradient(center, ellipse cover,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* IE10+ */
+background: radial-gradient(ellipse at center,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	
+           }
+           
+           .room_title {
+           	  font-size: 16px;
+           	  width: 370px;
+           	  padding: 12px;
+           	  color: #5D5D5D;
+           }
+           
+           .page_indicator_box {           	  
+           	  padding: 10px;
+           	  text-align:center;
+           	  width: 460px; 
+           	  font-size: 15px;          	  
+           }
+           
+           .left_right_box {           	
+           	  width:480px;
+           	  margin: 20px 0 10px 0;
+           	  height: 60px;
+           }
+           
+           .left_right_button {
+           	  cursor:pointer;
+           	  width: 236px;
+           	  color:#A6A6A6;
+           	  font-size: 50px;
+           	  text-align:center;
+           	  border: 2px solid #BDBDBD;
+           	  box-shadow: 0 0 7px #BDBDBD;
+           }
+           .left_right_button:hover {           	  
+           	  border: 2px solid gray;
+           	  box-shadow: 0 0 7px gray;
+           }
+           
+           #title_and_leave_button {
+           	width:1267px;
+           	  height: 80px;
+           	  border-bottom:2px dashed gray;
+           }         
+           
+           
+           .room_title_in_room {
+           	  float:left;
+           	  padding: 15px;
+           	  font-size: 20px;
+           	  border-radius: 5px;
+           	  color:white;
+           	  font-weight:bold;           	  
+           	  background: rgb(122,188,255); /* Old browsers */
+background: -moz-linear-gradient(-45deg,  rgba(122,188,255,1) 0%, rgba(96,171,248,1) 44%, rgba(64,150,238,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(122,188,255,1)), color-stop(44%,rgba(96,171,248,1)), color-stop(100%,rgba(64,150,238,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(-45deg,  rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(-45deg,  rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(-45deg,  rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* IE10+ */
+background: linear-gradient(135deg,  rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7abcff', endColorstr='#4096ee',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+           }
+           
+           .leave_button {
+           	  float:right;
+           	  padding: 15px;
+           	  font-size: 20px;
+           	  border-radius: 5px;
+           	  border: 3px solid #930000;
+           	  color:#930000;
+           	  font-weight: bold;
+           	  margin: 0 10px;
+           	  cursor:pointer;
+           }
+           .leave_button:hover {
+           	  border:3px solid red;
+           }
+           
+           .enter_button {
+           	 padding: 12px;
+           	 font-size: 15px;
+           	 border-radius: 5px;
+           	 color:white;
+           	 font-weight:bold;
+           	 cursor:pointer;
+           	 box-shadow: 0 0 10px black;
+           	 
+           	 background: rgb(169,3,41); /* Old browsers */
+background: -moz-linear-gradient(-45deg,  rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(169,3,41,1)), color-stop(44%,rgba(143,2,34,1)), color-stop(100%,rgba(109,0,25,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(-45deg,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(-45deg,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(-45deg,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* IE10+ */
+background: linear-gradient(135deg,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+           }
+            
+           .enter_button:hover {
+           	 border: 4px solid #C90000;
+           	 padding: 8px;
+           	 
+           }
+
+
+
+
+
+

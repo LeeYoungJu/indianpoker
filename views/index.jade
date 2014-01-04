@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  script(src='/javascripts/login.js')  
+  #menu_box
+    #register_button 간단한 회원가입
+  form(action='/enter', name='login_form', method='post')
+    table#login_table(cellpadding='0', cellspacing='0')
+        tr
+          td
+            input#id_form.login_input(type='text', value='id', name='id')
+        tr
+          td
+            input#pass_form.login_input(type='text', value='password', name='pass')
+        tr
+          td(height='10')
+        tr
+          td(align='right')
+            #submit_button login
+  .line          
+  img.desc_img(src='/images/game_desc.png')

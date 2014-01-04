@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    title= title    
+    script(type='text/javascript', src='/javascripts/jquery-1.10.2.min.js')
+    script(type='text/javascript', src='/socket.io/socket.io.js')
+    script(src='/javascripts/register.js')
+    link(rel='stylesheet', href='/stylesheets/register.css')
+  body    
+    form(name='register_form', method='post' action='register')
+      table#register_table(cellpadding='0', cellspacing='0')
+        tr
+          td
+            span.label 아이디
+          td
+            input#id_input.register_input(type='text', name='user_id')
+          td
+            #check_id.check_button 중복체크
+        tr
+          td
+            span.label 비밀번호
+          td
+            input.register_input(type='password', name='user_pass')
+        tr
+          td
+            span.label 비밀번호확인
+          td
+            input.register_input(type='password', name='pass_confirm')
+        tr
+          td
+            span.label 닉네임
+          td
+            input#nick_input.register_input(type='text', name='nick')
+          td
+            #check_nick.check_button 중복체크    
+        tr
+          td(colspan='3', align='left')
+            #register_button 가입하기
+      #info_box
+        | * 닉네임은 한글도 가능합니다.(최대 17자까지 가능)	
