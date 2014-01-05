@@ -89,7 +89,11 @@ $(document).ready(function() {
     	if(data.isSuccess) {
     		alert('없는 ' + type + '입니다. 사용하실 수 있습니다.');
     		check_obj[data_type] = true;
-    		checked_ + data_type = data.value;
+    		if(data_type == 'id') {
+    			checked_id = data.value;
+    		} else if(data_type == 'nick') {
+    			checked_nick = data.value;
+    		}    	
     	} else {
     		alert('이미 존재하는 ' + type + '입니다.');
     		$('#' + data_type + '_input').val('').focus();
