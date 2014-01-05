@@ -14,15 +14,23 @@ block content
         form(action='/makeRoom', method='POST')        
           input(type='text', id='roomname', name='roomname')
           input.make_room_button(type='submit', value='방 만들기')
+          #room_password_box
+            input#password_checkbox(type='checkbox', is_password='no')
+            span 비밀번호 걸기
+            input#room_password(type='text' name='room_password')
+          
+      .room_type_select_box
+        input.password_room_filter(type='radio', name='is_there_password', value='all' checked='checked')
+        span 전체보기
+        input.password_room_filter(type='radio', name='is_there_password', value='yes')
+        span 비밀번호 있는 방
+        input.password_room_filter(type='radio', name='is_there_password', value='no')
+        span 비밀번호 없는 방   
       .left_right_box
         #left_button.left_right_button.left <
         #right_button.left_right_button.left >
       .page_indicator_box     
-      #room_list_box
-        each room in roomList
-          .room_list
-            .room_title.left= room.room_title
-            .enter_button.left(onclick='location.href=\'/join/' + room.room_title + '/' + room.room_id + '/guest\'') 입장
+      #room_list_box        
     #desc_rule_box.left
       img(src='images/game_rule_board.png')
       #rule_video_button 동영상으로 규칙보기      

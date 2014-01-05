@@ -347,6 +347,26 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', end
             .make_room_button {
             	height: 28px;
             }
+            
+            #room_password_box {
+            	padding: 10px 0 0 0;
+            }
+            
+            .loading {
+            	width: 480px;
+            	font-size: 20px;
+            	color: #489CFF;
+            	font-weight:bold;
+            	text-align:center;
+            }
+            
+            #room_password {
+            	display:none;
+            }
+            
+            .room_type_select_box {            	
+            	margin: 20px 0 0 0;
+            }
 
             #make_room_box {
             	padding: 20px;
@@ -366,11 +386,24 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', end
            	  margin: 10px 0;           	  
            	             	  
            }  
+           .room_title_and_enter_button {
+           	height: 40px;           	
+           }
+           
+           .input_room_password {
+           	 padding: 5px;
+           	 background:#CD3B3B;
+           	 width: 270px;
+           	 font-size: 12px;
+           	 color:white;
+           	 font-weight:bold;
+           	 border-radius:5px;
+           }
            
            .room_list {
            	box-shadow: 0 0 10px black;
            	width: 450px;
-           	height: 40px;
+           	
            	 padding: 15px;
            	 border-bottom: 3px solid #747474;
            	

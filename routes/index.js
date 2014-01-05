@@ -51,7 +51,7 @@ Room.prototype = {
 	}
 	
 	, load_rooms: function() {
-		conn.load_rooms(0, 10, bindEvent(this, this.load_rooms_callback));
+		conn.load_rooms(0, 10, 'all', bindEvent(this, this.load_rooms_callback));
 	}	 
 }
 
@@ -181,10 +181,15 @@ exports.logout = function(req, res) {
 
 exports.makeRoom = function(req, res){
   var isSuccess = false
-  , title = req.body.roomname;  
+  , title = req.body.roomname
+  , room_password = req.body.room_password;
+  if(!room_password || room_password == '') {
+  	room_password = null;
+  }  
   
   var card_arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   var card = makeCard(card_arr);
+  
 	
   if(title && title.trim() != '') {	  
 	  var select_room_id_callback = function(err, rows) {
@@ -199,7 +204,7 @@ exports.makeRoom = function(req, res){
 	  		, roomname: title
 	  	});
 	  };
-	  conn.insertRoom(title, card, select_room_id_callback);   	  
+	  conn.insertRoom(title, card, room_password, select_room_id_callback);   	  
   }
 };
 

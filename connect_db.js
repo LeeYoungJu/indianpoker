@@ -9,10 +9,10 @@ var conn = mysql.createConnection({
 });
 
 var mysqlUtil = module.exports = {
-	insertRoom: function(title, card, callback) {
+	insertRoom: function(title, card, room_password, callback) {
 		conn.query(
 			'insert into room set ?'
-			, {room_id: 'NULL', room_title: title, mem_number: 0, ready_level: 0, card: card}
+			, {room_id: 'NULL', room_title: title, mem_number: 0, ready_level: 0, card: card, password: room_password}
 			, function(err) {
 				conn.query(
 					'select max(room_id) as id from room where room_title = ?'
@@ -63,17 +63,31 @@ var mysqlUtil = module.exports = {
 		);
 	}
 	
-	, load_rooms: function(start, list_num, callback) {
+	, load_rooms: function(start, list_num, is_there_password, callback) {		
+		if(is_there_password == 'yes') {
+			var load_room_query = 'select * from room where mem_number < 2 and password is not NULL order by room_id desc limit ?, ?'
+		} else if(is_there_password == 'no') {
+			var load_room_query = 'select * from room where mem_number < 2 and password is NULL order by room_id desc limit ?, ?'
+		} else if(is_there_password == 'all') {
+			var load_room_query = 'select * from room where mem_number < 2 order by room_id desc limit ?, ?'
+		}
 		conn.query(
-			'select * from room where mem_number < 2 order by room_id desc limit ?, ?'
+			load_room_query
 			, [start, list_num]
 			, callback
 		);
-	}
+	}	
 	
-	, get_total_room: function(callback) {
+	, get_total_room: function(is_there_password, callback) {
+		if(is_there_password == 'yes') {
+			var get_total_query = 'select count(*) as num from room where mem_number < 2 and password is not NULL'
+		} else if(is_there_password == 'no') {
+			var get_total_query = 'select count(*) as num from room where mem_number < 2 and password is NULL'
+		} else if(is_there_password == 'all') {
+			var get_total_query = 'select count(*) as num from room where mem_number < 2'
+		}
 		conn.query(
-			'select count(*) as num from room where mem_number < 2'
+			get_total_query
 			, callback
 		)
 	}
@@ -138,12 +152,7 @@ var mysqlUtil = module.exports = {
 		);
 	}
 	
-	, check: function(type, value, callback) {
-		if(conn.query) {
-			console.log('success');
-		} else {
-			console.log('fail');
-		}
+	, check: function(type, value, callback) {		
 		conn.query(
 			'select count(*) as num from user_info where ' + type + ' = ?'
 			, [value]

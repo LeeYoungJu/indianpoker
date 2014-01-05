@@ -38,16 +38,24 @@ module.exports = function(app) {
 			
 			socket.emit('here_total', {total: total});			
 		};
+		var load_page_callback = function (err, rows) {
+			if(err) {
+				throw err;
+			}			
+			socket.emit('here_room_list', {rooms: rows});
+		};
 		
-		conn.get_total_room(get_total_room_callback);
+		conn.get_total_room('all', get_total_room_callback);		
+		conn.load_rooms(0, 10, 'all', load_page_callback);
+		
+		
+		socket.on('get_total', function(data) {
+			conn.get_total_room(data.is_there_password, get_total_room_callback);
+		});
+		
 		
 		socket.on('go_other_page', function(data) {
-			conn.load_rooms(data.start, data.list_num, function(err, rows) {
-				if(err) {
-					throw err;
-				}
-				socket.emit('here_room_list', {rooms: rows});
-			});
+			conn.load_rooms(data.start, data.list_num, data.is_there_password, load_page_callback);
 		});
 	});
 	
@@ -60,7 +68,7 @@ module.exports = function(app) {
 				} else {
 					var num = rows[0].num;
 					if(num == 0) {
-						socket.emit('result', {isSuccess: true, type: data.type});
+						socket.emit('result', {isSuccess: true, type: data.type, value: data.value});
 					} else {
 						socket.emit('result', {isSuccess: false, type: data.type});
 					}
