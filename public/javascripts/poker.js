@@ -1,12 +1,15 @@
 $(document).ready(function() {
-    var room = io.connect('/room');  
-         
+    var room = io.connect('/room'); 
         
     
     var my_state_button = $('#my_state');    
     var your_state_button = $('#your_state');
     
     var $leave_button = $('#leave'); 
+        
+    var user_id = $('#user_id').val(); 
+    var $my_win_lose_box = $('#my_win_lose_box');
+    var $your_win_lose_box = $('#your_win_lose_box');
         
     var $my_nick_box = $('#my_nick');
     var $your_nick_box = $('#your_nick');
@@ -29,6 +32,21 @@ $(document).ready(function() {
         $my_nick_box.text(chat_obj.nick);
    		$my_nick_box.slideDown('normal');   		
 	    room.emit('join', {roomName:$('#roomName').text(), nick:chat_obj.nick, room_id: chat_obj.room_id});
+	    room.emit('get_win_lose', {user_id:user_id});
+    });
+    
+    room.on('here_win_lose', function(data) {
+    	var html = data.win + '승 ' + data.lose + '패';
+    	if(data.user_id == user_id) {
+    		$my_win_lose_box.html(html);
+    	} else {    		
+    		$your_win_lose_box.html(html);    		
+    		room.emit('send_win_lose_one_more', {win_lose: $my_win_lose_box.html()});
+    	}
+    });
+    
+    room.on('here_master_win_lose', function(data) {
+    	$your_win_lose_box.html(data.win_lose);
     });
     
     room.on('joined', function(data) {
@@ -43,6 +61,8 @@ $(document).ready(function() {
     		window.location.href = '/enter';
     	}
     });
+    
+    
     
     room.on('here_my_nick', function(data) {
     	var nick = data.nick

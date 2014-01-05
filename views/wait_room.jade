@@ -6,10 +6,12 @@ block content
     #logout_button.right logout     
     .clear      
     .reload_button 새로고침(방 리스트 새로 갱신)
+    input#user_id(type='hidden' value='#{user_id}')
     #room_list_box_wrapper.left  
       #welcome_box
-        span.user_nick #{nickname}
+        span.user_nick #{nickname}        
         님 환영합니다.
+        #win_lose_box
       #make_room_box      
         form(action='/makeRoom', method='POST')        
           input(type='text', id='roomname', name='roomname')

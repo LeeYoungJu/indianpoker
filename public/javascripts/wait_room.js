@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	var socket = io.connect('/room_page');
+	var user_id = $('#user_id').val();
 		
 	var room_page = {
 		no: 0
@@ -7,6 +8,7 @@ $(document).ready(function() {
 		, is_there_password: 'all'	
 	};
 	
+	socket.emit('get_win_lose', {user_id: user_id});	
 	
 	
 	socket.on('here_total', function(data) {		
@@ -17,6 +19,12 @@ $(document).ready(function() {
 	var $room_list_box = $('#room_list_box');
 	input_loading_div();
 	
+	var $win_lose_box = $('#win_lose_box');	
+	socket.on('here_win_lose', function(data) {
+		var html = data.win + '승 ' + data.lose + '패';
+		$win_lose_box.html(html);
+	});
+		
 	var $page_indicator_box = $('.page_indicator_box');
 	
 	var $logout_button = $('#logout_button');

@@ -22,6 +22,14 @@ var mysqlUtil = module.exports = {
 			}
 		);
 	}
+	
+	, get_user_win_lose: function(user_id, callback) {
+		conn.query(
+			'select win, lose from user_info where id = ?'
+			, [user_id]
+			, callback
+		);
+	}
 		
 	, get_card: function(room_id, callback) {
 		conn.query(

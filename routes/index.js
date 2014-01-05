@@ -46,6 +46,7 @@ Room.prototype = {
 		this.res.render('wait_room', {
   	        isSuccess: this.isSuccess
   	        , nickname: this.nick
+  	        , user_id: this.req.session.user_id
   	        , roomList: rows  	
         });
 	}
@@ -163,7 +164,7 @@ exports.enter_get = function(req, res){
 	    room.load_rooms();
     } else {  	    
 	    res.render('wait_room', {	  	  
-		    isSuccess: false
+		    isSuccess: false		    
 		    , nickname: ''
 	    });
     }
@@ -227,7 +228,8 @@ exports.join = function(req, res){
 	    isSuccess: isSuccess
 	    , roomid: roomid
 	    , roomName: roomName
-	    , nickName: req.session.nick	
+	    , nickName: req.session.nick
+	    , user_id: req.session.user_id
 	    , isMaster: req.params.isMaster		
     });
 };

@@ -12,6 +12,7 @@ block content
       alert('방에 입장할 수 없습니다.');
       location.href = '/enter';
   - else
+    input#user_id(type='hidden', value='#{user_id}')
     input#nick(type='hidden', value='#{nickName}')
     input#room_id(type='hidden', value='#{roomid}')
     input#isMaster(type='hidden', value='#{isMaster}')
@@ -20,8 +21,10 @@ block content
       #leave.leave_button 나가기
     .clear
     #user_nick_box
-      span.left.nick_box#my_nick    
+      span.left.nick_box#my_nick
+      span.left.win_lose_box#my_win_lose_box
       span.right.nick_box#your_nick
+      span.right.win_lose_box#your_win_lose_box
     .clear
     #game_wrapper
       #my_state.state.left(isready='no') ready

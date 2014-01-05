@@ -1,19 +1,4 @@
 var conn = require('./connect_db');
-/*
-function makeCard(arr) {		    					    		  		    		
-    if(arr.length > 0) {
-		var ran_index = Math.round(Math.random() * (arr.length-1));		    			
-		return arr.splice(ran_index, 1);		    			
-    } else {		    			
-		    			
-	}
-}*/
-/*
-function makeRandomIndex(max_length) {		    					    		  		    		
-    return ran_index = Math.round(Math.random() * (max_length-1));    
-}*/
-
-
 
 module.exports = function(app) {	
 	var io = require('socket.io').listen(app);
@@ -49,6 +34,21 @@ module.exports = function(app) {
 		conn.load_rooms(0, 10, 'all', load_page_callback);
 		
 		
+		socket.on('get_win_lose', function(data) {
+			var user_id = data.user_id;
+			
+			var get_user_win_lose_callback = function(err, rows) {
+				if(err) {
+					throw err;
+				}
+				var win = rows[0].win;
+				var lose = rows[0].lose;
+				
+				socket.emit('here_win_lose', {win: win, lose: lose});
+			}
+			conn.get_user_win_lose(user_id, get_user_win_lose_callback)
+		});
+		
 		socket.on('get_total', function(data) {
 			conn.get_total_room(data.is_there_password, get_total_room_callback);
 		});
@@ -56,12 +56,13 @@ module.exports = function(app) {
 		
 		socket.on('go_other_page', function(data) {
 			conn.load_rooms(data.start, data.list_num, data.is_there_password, load_page_callback);
-		});
+		});		
 	});
 	
 	
 	var Register = io.of('/register').on('connection', function(socket) {
 		socket.on('check', function(data) {
+			console.log('register gggggggggggggggggggggg');
 			var check_callback = function(err, rows) {
 				if(err) {
 					throw err;
@@ -130,6 +131,26 @@ module.exports = function(app) {
 				var nick = data.nick;
 				socket.broadcast.to(joinedRoom).emit('here_my_nick', {nick:nick});
 			}
+		});
+		
+		socket.on('get_win_lose', function(data) {
+			var user_id = data.user_id;
+			
+			var get_user_win_lose_callback = function(err, rows) {
+				if(err) {
+					throw err;
+				}
+				var win = rows[0].win;
+				var lose = rows[0].lose;
+				
+				socket.emit('here_win_lose', {win: win, lose: lose, user_id: user_id});
+				socket.broadcast.to(joinedRoom).emit('here_win_lose', {win: win, lose: lose});
+			}
+			conn.get_user_win_lose(user_id, get_user_win_lose_callback)
+		});
+		
+		socket.on('send_win_lose_one_more', function(data) {			
+			socket.broadcast.to(joinedRoom).emit('here_master_win_lose', {win_lose:data.win_lose});
 		});
 		
 		socket.on('message', function(data) {
